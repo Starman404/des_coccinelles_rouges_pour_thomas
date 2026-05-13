@@ -1,0 +1,127 @@
+{
+  "asso": {
+    "nom":          "Des Coccinelles Rouges Pour Thomas",
+    "nomCoupure":   2,
+    "logo":         "images/logo/coccinelle.svg",
+    "adresse":      "6A Les Castors\n13850 GREASQUE",
+    "email":        "descoccinellesrougespourthomas@gmail.com",
+    "tel": [
+      { "nom": "Sabine Matina", "numero": "+33 6 26 09 50 68" },
+      { "nom": "Luc Sanchez", "numero": "+33 6 28 82 72 33" }
+    ]
+  },
+
+  "reseaux": {
+    "facebook":  "https://www.facebook.com/descoccinellesrougespourthomas#",
+    "instagram": "https://www.instagram.com/descoccinellesrougespourthomas/",
+    "tiktok":    "https://www.tiktok.com/@matinathomas110710"
+  },
+
+  "accueil": {
+    "heroTitre":          "Illuminer les journées",
+    "heroSuite":          "des enfants malades",
+    "heroTexte":          "Nous apportons joie, réconfort et soutien aux enfants hospitalisés et à leurs familles. Parce qu'un sourire peut tout changer, même dans les moments les plus difficiles.",
+    "heroImage":          "images/accueil.png",
+
+    "donTitre":           "Appel aux dons",
+    "donTexte":           "Chaque don compte dans le combat contre les cancers pédiatriques et les maladies rares. Grâce à votre générosité, l'association Des Coccinelles Rouges pour Thomas accompagne les enfants malades et leurs familles en apportant un soutien concret, humain et bienveillant au quotidien. Vos contributions permettent de financer des projets dédiés aux enfants hospitalisés, améliorer leurs conditions de séjour, soutenir les familles, réaliser les rêves des petits guerriers, participer au financement de la recherche et sensibiliser aux dons de sang, de plaquettes, de moelle osseuse et d'organes. Ensemble, nous pouvons offrir un peu de lumière, d'espoir et de réconfort à ceux qui en ont le plus besoin.",
+    "helloassoUrl":       "https://www.helloasso.com/associations/des-coccinelles-rouges-pour-thomas",
+
+    "histoireTitre":      "L'association Des Coccinelles Rouges pour Thomas",
+    "histoireTexte1":     "L'association œuvre en faveur des enfants atteints de cancer ou de maladies rares ainsi que de leurs familles.",
+    "histoireTexte2":     "Créée à Gréasque par la famille de Thomas, elle a pour mission d'apporter soutien, réconfort et solidarité à travers des actions concrètes : aide aux familles, amélioration du quotidien à l'hôpital, réalisation de rêves d'enfants malades, événements solidaires et soutien à la recherche pédiatrique. Portée par des valeurs humaines fortes, l'association agit avec une conviction simple : transformer l'amour reçu en espoir pour les autres.",
+    "histoireImgPortrait":"images/Thomas.jpg",
+    "histoireImgCarre":   "images/Sabine.jpg",
+
+    "quiTitre":  "Une équipe engagée, animée par l'amour",
+    "quiTexte":  "Nous sommes un collectif de bénévoles, parents, soignants et citoyens engagés. Réunis par la même conviction : un enfant malade mérite la même insouciance que tous les autres.",
+
+    "actions": [
+      { "titre": "Ateliers créatifs",   "texte": "Peinture, musique, théâtre dans les chambres et salles communes." },
+      { "titre": "Événements solidaires", "texte": "Concerts, tournois, marchés caritatifs pour réunir la communauté autour des enfants malades." },
+      { "titre": "Accompagnement",      "texte": "Soutien psychologique pour les enfants et leurs proches." },
+      { "titre": "Cadeaux & surprises", "texte": "Jouets, livres, consoles pour rendre chaque journée spéciale." }
+    ],
+
+    "dons": [
+      {
+        "titre": "Don financier",
+        "texte": "Votre don permet de financer nos actions, améliorer les conditions d'hospitalisation et soutenir la recherche contre les cancers pédiatriques.",
+        "btnTexte": "HelloAsso",
+        "btnType": "helloasso"
+      },
+      {
+        "titre": "Don de sang, plaquettes & moelle",
+        "texte": "Le don de sang, de plaquettes et de moelle osseuse peut sauver des vies. En donnant, vous offrez une chance supplémentaire aux enfants malades comme Thomas.",
+        "btnTexte": "En savoir plus",
+        "btnType": "url",
+        "btnUrl": ""
+      },
+      {
+        "titre": "La maison des familles",
+        "texte": "Nous construisons un lieu d'accueil pour les familles d'enfants hospitalisés. Vous pouvez nous aider en faisant don d'électroménager, mobilier ou matériel de confort.",
+        "btnTexte": "Nous contacter",
+        "btnType": "contact"
+      },
+      {
+        "titre": "Devenir bénévole",
+        "texte": "Rejoignez notre équipe de bénévoles passionnés. Animateurs, accompagnateurs, organisateurs d'événements — il y a une place pour chacun.",
+        "btnTexte": "Nous rejoindre",
+        "btnType": "contact"
+      }
+    ]
+  },
+
+  "histoire": {
+    "intro":          "Thomas était un petit garçon passionné de football, de jeux vidéo et de moments partagés avec sa famille. Entouré de l'amour de ses parents, de ses frères et sœur, il illuminait le quotidien par sa joie de vivre, son humour et son énergie.",
+    "image1":         "images/histoire1.jpg",
+    "texte1":         "En mai 2017, la vie de sa famille bascule lorsqu'un diagnostic de leucémie est annoncé. Commence alors un long combat contre la maladie, rythmé par les traitements, les hospitalisations et l'espoir de la guérison.",
+    "texte2":         "Face à cette épreuve, un formidable élan de solidarité naît autour de Thomas et de sa famille. Habitants de Gréasque, proches, bénévoles et anonymes se mobilisent avec une générosité immense. Thomas s'est envolé le 3 novembre 2019 à l'âge de 9 ans. Son courage, son sourire et l'amour qu'il a transmis continuent aujourd'hui d'inspirer l'association.",
+    "naissanceTitre": "La naissance de l'association",
+    "image2":         "images/histoire2.png",
+    "texte3":         "L'association Des Coccinelles Rouges pour Thomas est née d'un immense élan d'amour et de solidarité reçu pendant le combat de Thomas contre la leucémie. Fondée par sa maman, Sabine Matina, l'association a vu le jour avec une volonté forte : transformer cette épreuve en une action porteuse d'espoir pour d'autres familles confrontées à la maladie.",
+    "texte4":         "Depuis sa création, l'association agit pour soutenir les enfants atteints de cancer ou de maladies rares : animations en milieu hospitalier, distribution de jouets, accompagnement des familles, organisation d'événements solidaires et participation au financement de la recherche. L'association porte également un message de sensibilisation aux dons de sang, de plaquettes, de moelle osseuse et d'organes. Sa mission reste guidée par cette conviction : faire naître de l'espoir, du soutien et de la solidarité au cœur des épreuves les plus difficiles."
+  },
+
+  "qui": {
+    "intro":  "Des Coccinelles Rouges pour Thomas rassemble des bénévoles venant de tous horizons — médecins, artistes, enseignants, parents — autour d'une conviction commune.",
+    "texte2": "Fondée par Sabine Matina, maman de Thomas, l'association agit chaque jour avec cœur pour soutenir les enfants malades et leurs familles, portée par les valeurs de solidarité, de bienveillance et d'espoir.",
+
+    "valeurs": [
+      { "titre": "Bienveillance", "texte": "Nous agissons avec douceur et empathie envers chaque enfant et chaque famille.",              "gold": false },
+      { "titre": "Joie",          "texte": "Nous croyons au pouvoir du rire et du jeu pour traverser les moments difficiles.",            "gold": true  },
+      { "titre": "Solidarité",    "texte": "Ensemble, nous sommes plus forts. Chaque bénévole fait partie de cette grande famille.",       "gold": false },
+      { "titre": "Créativité",    "texte": "L'art, la musique et les activités créatives sont au cœur de nos interventions.",             "gold": false },
+      { "titre": "Intégrité",     "texte": "Transparence dans la gestion, rigueur dans nos actions, respect de chaque individu.",         "gold": true  },
+      { "titre": "Engagement",    "texte": "Notre engagement est durable. Nous construisons des liens pérennes avec nos partenaires.",    "gold": false }
+    ],
+
+    "equipe": [
+      { "nom": "Sabine Matina", "role": "Présidente", "bio": "", "photo": "images/equipe/Sabine_Matina.jpg" },
+      { "nom": "Luc Sanchez", "role": "Vice-Président", "bio": "", "photo": "images/equipe/Luc_Sanchez.jpg" },
+      { "nom": "Jérémie Mantia", "role": "Directeur événementiel", "bio": "", "photo": "images/equipe/Jeremie_Mantia.jpg" },
+      { "nom": "Séverine Trinci", "role": "Trésorière", "bio": "", "photo": "images/equipe/Severine_Trinci.jpg" },
+      { "nom": "Gaëlle Gasdoué", "role": "Secrétaire", "bio": "", "photo": "images/equipe/Gaelle_Gasdoue.jpg" }
+    ],
+
+    "parrains": [
+      { "nom": "Bernard Pardo", "description": "Footballeur professionnel", "photo": "images/parrains/Bernard_Pardo.jpg" },
+      { "nom": "Yassine Khelif", "description": "Président de Rousset FC", "photo": "images/parrains/Yassine_Khelif.jpg" },
+      { "nom": "Clemstance Caldarella", "description": "Chanteuse", "photo": "images/parrains/Clemstance_Caldarella.jpg" },
+      { "nom": "Medhi Zidane", "description": "Responsable Z5", "photo": "images/parrains/Medhi_Zidane.jpg" },
+      { "nom": "PAGA", "description": "Artiste", "photo": "images/parrains/PAGA.jpg" },
+      { "nom": "Bengous", "description": "Artiste", "photo": "images/parrains/Bengous.jpg" },
+      { "nom": "Jennifer Lauret", "description": "Actrice", "photo": "images/parrains/Jennifer_Lauret.jpg" },
+      { "nom": "Aïssa Mandi", "description": "Footballeur professionnel", "photo": "images/parrains/Aïssa_Mandi.jpg" },
+      { "nom": "Audrey Mandi", "description": "", "photo": "images/parrains/Audrey_Mandi.jpg" },
+      { "nom": "Julia Vial", "description": "Journaliste et présentatrice", "photo": "images/parrains/Julia_Vial.jpg" },
+      { "nom": "David N’Gog", "description": "Footballeur professionnel", "photo": "images/parrains/David_NGog.jpg" },
+      { "nom": "Elisa N'Gog", "description": "", "photo": "images/parrains/Elisa_NGog.jpg" }
+    ]
+  },
+
+  "contact": {
+    "intro":  "N'hésitez pas à nous écrire pour toute question. Nous répondons généralement sous 48h.",
+    "sujets": ["Faire un don", "Devenir bénévole", "Partenariat", "Presse / Médias", "Autre"]
+  }
+}
