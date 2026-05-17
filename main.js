@@ -1,4 +1,45 @@
 /* =============================================
+   FACEBOOK SDK — chargé au scroll (IntersectionObserver)
+   ============================================= */
+(function() {
+  var fbLoaded = false;
+
+  function loadFbWidget() {
+    if (fbLoaded) return;
+    fbLoaded = true;
+    document.getElementById('fb-facade').style.display = 'none';
+    document.getElementById('fb-widget').style.display = 'block';
+    var s = document.createElement('script');
+    s.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0';
+    s.async = true;
+    s.defer = true;
+    s.crossOrigin = 'anonymous';
+    document.body.appendChild(s);
+  }
+
+  /* Observe the facade (visible element) so we load when it enters viewport */
+  var target = document.getElementById('fb-facade');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadFbWidget();
+        observer.disconnect();
+      }
+    }, { rootMargin: '300px' });
+    if (target) observer.observe(target);
+  } else {
+    /* Fallback for old browsers */
+    window.addEventListener('scroll', function onScroll() {
+      var rect = target && target.getBoundingClientRect();
+      if (rect && rect.top < window.innerHeight + 300) {
+        loadFbWidget();
+        window.removeEventListener('scroll', onScroll);
+      }
+    }, { passive: true });
+  }
+})();
+
+/* =============================================
    ICÔNES SVG (style Flowbite outline)
    ============================================= */
 const PH_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -214,7 +255,7 @@ async function boot() {
   if (Ac.heroImage) {
     const box = document.getElementById('hero-img-box');
     if (box) {
-      box.innerHTML = `<img src="${Ac.heroImage}" alt="Photo de l'association Des Coccinelles Rouges Pour Thomas" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">`;
+      box.innerHTML = `<img fetchpriority="high" decoding="async" width="800" height="600" src="${Ac.heroImage}" alt="Photo de l'association Des Coccinelles Rouges Pour Thomas" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">`;
     }
   }
 
@@ -246,7 +287,7 @@ async function boot() {
       } else if (d.btnType === 'url') {
         btn = `<a href="${d.btnUrl}" target="_blank" class="don-card-btn don-card-btn--blood">${d.btnTexte} ${EXT}</a>`;
       } else if (d.btnType === 'contact') {
-        btn = `<a onclick="go('contact')" class="don-card-btn don-card-btn--blood" style="cursor:pointer;">${d.btnTexte} ${ARROW}</a>`;
+        btn = `<a href="#contact" onclick="go('contact');return false;" class="don-card-btn don-card-btn--blood">${d.btnTexte} ${ARROW}</a>`;
       }
       return `<div class="don-card don-card--red">
         <div class="don-card-icon">${DON_ICONS[i % DON_ICONS.length]}</div>
@@ -268,7 +309,7 @@ async function boot() {
   document.getElementById('actions-grid').innerHTML = Ac.actions.map((a, i) =>
     `<div class="qui-card">
       <div class="c-icon">${ACTION_ICONS[i % ACTION_ICONS.length]}</div>
-      <h4>${a.titre}</h4>
+      <h3>${a.titre}</h3>
       <p>${a.texte}</p>
     </div>`).join('');
 
@@ -298,7 +339,7 @@ async function boot() {
   document.getElementById('team-grid').innerHTML = Q.equipe.map(m =>
     `<div class="team-card">
       <div class="team-photo">${m.photo
-        ? `<img src="${m.photo}" alt="${m.nom}, ${m.role} — Des Coccinelles Rouges Pour Thomas" style="width:100%;height:100%;object-fit:cover;">`
+        ? `<img loading="lazy" decoding="async" width="180" height="180" src="${m.photo}" alt="${m.nom}, ${m.role} — Des Coccinelles Rouges Pour Thomas" style="width:100%;height:100%;object-fit:cover;">`
         : `<div class="img-ph" style="width:100%;height:100%;border-radius:0;">${USER_SVG}<span>Photo<br><small>carré</small></span></div>`
       }</div>
       <div class="team-info">
@@ -314,7 +355,7 @@ async function boot() {
     parrGrid.innerHTML = Q.parrains.map(p =>
       `<div class="team-card">
         <div class="team-photo">${p.photo
-          ? `<img src="${p.photo}" alt="${p.nom}${p.description ? ', ' + p.description : ''} — parrain Des Coccinelles Rouges Pour Thomas" style="width:100%;height:100%;object-fit:cover;">`
+          ? `<img loading="lazy" decoding="async" width="180" height="180" src="${p.photo}" alt="${p.nom}${p.description ? ', ' + p.description : ''} — parrain Des Coccinelles Rouges Pour Thomas" style="width:100%;height:100%;object-fit:cover;">`
           : `<div class="img-ph" style="width:100%;height:100%;border-radius:0;">${USER_SVG}<span>Photo<br><small>carré</small></span></div>`
         }</div>
         <div class="team-info">
@@ -369,7 +410,11 @@ function toggleMenu() {
   const mob = document.getElementById('mob');
   mob.classList.toggle('open');
   const btn = document.querySelector('.hamburger');
-  if (btn) btn.setAttribute('aria-expanded', mob.classList.contains('open'));
+  if (btn) {
+    const isOpen = mob.classList.contains('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+  }
 }
 
 function goDon() {

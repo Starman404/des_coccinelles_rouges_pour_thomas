@@ -79,7 +79,9 @@
   <!-- Polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;600;700;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/accueil.png" fetchpriority="high">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;600;700;900&family=Quicksand:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;600;700;900&family=Quicksand:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -93,28 +95,28 @@
     <div class="logo-name" id="nav-name">Nom de <span>l'Association</span></div>
   </div>
   <ul class="nav-links">
-    <li><a onclick="go('home')"     id="n-home">Accueil</a></li>
-    <li><a onclick="go('histoire')" id="n-histoire">Notre Histoire</a></li>
-    <li><a onclick="go('qui')"      id="n-qui">Qui Sommes-Nous ?</a></li>
-    <li><a onclick="go('contact')"  id="n-contact">Contact</a></li>
-    <li><a id="nav-cta-don" href="#" target="_blank" class="nav-cta">
+    <li><a href="#accueil" onclick="go('home');return false;" id="n-home">Accueil</a></li>
+    <li><a href="#histoire" onclick="go('histoire');return false;" id="n-histoire">Notre Histoire</a></li>
+    <li><a href="#qui" onclick="go('qui');return false;" id="n-qui">Qui Sommes-Nous ?</a></li>
+    <li><a href="#contact" onclick="go('contact');return false;" id="n-contact">Contact</a></li>
+    <li><a id="nav-cta-don" href="#" target="_blank" rel="noopener noreferrer" class="nav-cta">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
       </svg>
       Faire un Don
     </a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
 </nav>
 
 <div class="mobile-menu" id="mob">
-  <a onclick="go('home');toggleMenu()">Accueil</a>
-  <a onclick="go('histoire');toggleMenu()">Notre Histoire</a>
-  <a onclick="go('qui');toggleMenu()">Qui Sommes-Nous ?</a>
-  <a onclick="go('contact');toggleMenu()">Contact</a>
-  <a id="mob-cta-don" href="#" target="_blank" style="color:var(--red);font-weight:700;">Faire un Don</a>
+  <a href="#accueil" onclick="go('home');toggleMenu();return false;">Accueil</a>
+  <a href="#histoire" onclick="go('histoire');toggleMenu();return false;">Notre Histoire</a>
+  <a href="#qui" onclick="go('qui');toggleMenu();return false;">Qui Sommes-Nous ?</a>
+  <a href="#contact" onclick="go('contact');toggleMenu();return false;">Contact</a>
+  <a id="mob-cta-don" href="#" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:700;">Faire un Don</a>
 </div>
 
 <main>
@@ -128,16 +130,16 @@
   <section class="hero" aria-label="Présentation de l'association">
     <div class="hero-inner">
       <div>
-        <h1 id="h-titre"></h1>
-        <p class="lead" id="h-texte"></p>
+        <h1 id="h-titre">Illuminer les journées<em>des enfants malades</em></h1>
+        <p class="lead" id="h-texte">Nous apportons joie, réconfort et soutien aux enfants hospitalisés et à leurs familles. Parce qu'un sourire peut tout changer, même dans les moments les plus difficiles.</p>
         <div class="hero-btns">
-          <a id="hero-don-btn" href="#" target="_blank" class="btn btn-primary">
+          <a id="hero-don-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
             Faire un Don
           </a>
-          <a class="btn btn-outline" onclick="go('histoire')">
+          <a class="btn btn-outline" href="#histoire" onclick="go('histoire');return false;">
             Notre histoire
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -186,15 +188,26 @@
         <p class="lead" style="margin-bottom:28px;">Suivez nos dernières actions, événements et moments forts directement depuis notre page Facebook.</p>
         <div class="actu-widget">
           <div id="fb-root"></div>
-          <div class="fb-page"
-            data-href="https://www.facebook.com/descoccinellesrougespourthomas"
-            data-tabs="timeline"
-            data-width="500"
-            data-height="800"
-            data-small-header="true"
-            data-adapt-container-width="true"
-            data-hide-cover="false"
-            data-show-facepile="false">
+          <!-- Facade Facebook : chargée automatiquement au scroll -->
+          <div id="fb-facade" aria-hidden="true"
+               style="width:100%;height:420px;background:#f0f2f5;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <div style="text-align:center;">
+              <p style="font-weight:700;color:#1c1e21;margin:0;">Nos actualités Facebook</p>
+              <p style="font-size:.85rem;color:#606770;margin:4px 0 0;">Chargement en cours…</p>
+            </div>
+          </div>
+          <div id="fb-widget" style="display:none;">
+            <div class="fb-page"
+              data-href="https://www.facebook.com/descoccinellesrougespourthomas"
+              data-tabs="timeline"
+              data-width="500"
+              data-height="800"
+              data-small-header="true"
+              data-adapt-container-width="true"
+              data-hide-cover="false"
+              data-show-facepile="false">
+            </div>
           </div>
         </div>
         <div class="actu-social">
@@ -236,7 +249,7 @@
         <div class="divider"></div>
         <p class="lead" id="abt-p1"></p>
         <p id="abt-p2"></p>
-        <a class="link-arrow" onclick="go('histoire')">
+        <a class="link-arrow" href="#histoire" onclick="go('histoire');return false;">
           Lire l'histoire complète
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -253,7 +266,7 @@
         <h2 id="qui-t"></h2>
         <div class="divider"></div>
         <p class="lead" id="qui-p"></p>
-        <a class="btn btn-outline" onclick="go('qui')" style="margin-top:18px;">
+        <a class="btn btn-outline" href="#qui" onclick="go('qui');return false;" style="margin-top:18px;">
           Découvrir l'équipe
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -320,13 +333,13 @@
     <h2>Vous aussi, rejoignez l'aventure</h2>
     <p class="lead">Bénévole, donateur ou simplement curieux — il y a une place pour vous dans notre famille.</p>
     <div class="cta-btns">
-      <a id="histoire-don-btn" href="#" target="_blank" class="btn btn-primary">
+      <a id="histoire-don-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
         </svg>
         Faire un don
       </a>
-      <a class="btn btn-outline" onclick="go('contact')">
+      <a class="btn btn-outline" href="#contact" onclick="go('contact');return false;">
         Nous rejoindre
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -475,33 +488,43 @@
     <div class="footer-col" aria-label="Navigation secondaire">
       <h4>Navigation</h4>
       <ul>
-        <li><a onclick="go('home')">Accueil</a></li>
-        <li><a onclick="go('histoire')">Notre Histoire</a></li>
-        <li><a onclick="go('qui')">Qui Sommes-Nous ?</a></li>
-        <li><a onclick="go('contact')">Contact</a></li>
+        <li><a href="#accueil" onclick="go('home');return false;">Accueil</a></li>
+        <li><a href="#histoire" onclick="go('histoire');return false;">Notre Histoire</a></li>
+        <li><a href="#qui" onclick="go('qui');return false;">Qui Sommes-Nous ?</a></li>
+        <li><a href="#contact" onclick="go('contact');return false;">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Actions</h4>
       <ul>
-        <li><a onclick="goDon()">Faire un don</a></li>
-        <li><a onclick="go('contact')">Devenir bénévole</a></li>
-        <li><a onclick="go('contact')">Partenariats</a></li>
-        <li><a onclick="go('contact')">Presse &amp; Médias</a></li>
+        <li><a href="#" onclick="goDon();return false;">Faire un don</a></li>
+        <li><a href="#contact" onclick="go('contact');return false;">Devenir bénévole</a></li>
+        <li><a href="#contact" onclick="go('contact');return false;">Partenariats</a></li>
+        <li><a href="#contact" onclick="go('contact');return false;">Presse &amp; Médias</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span id="ft-copy"></span>
+    <div class="tooltip-container">
+      <span class="tooltip"><span>Réalisé par</span><strong style="color:var(--red);margin-left:4px">Starman</strong></span>
+      <span class="text">
+        <div class="borde-back">
+          <div class="icon">
+            <a href="https://github.com/Starman404" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Starman, développeur du site">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="color:var(--red);" aria-hidden="true" focusable="false">
+                <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </span>
+    </div>
     <span>Fait avec <span class="footer-heart">♥</span> pour les enfants</span>
   </div>
 </footer>
 
-<!-- SDK Facebook (Page Plugin) -->
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0">
-</script>
 
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   --white:      #fdfdfd;
   --off-white:  #f5f5f0;
   --section-bg: #f9f8f6;
-  --red:        #f10808;
+  --red:        #c90000;
   --red-pale:   #fff0f0;
   --gold:       #f7b538;
   --gold-pale:  #fff8e7;
@@ -188,6 +188,12 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; }
 .hero-img {
   width: 100%; aspect-ratio: 4/3; border-radius: var(--radius);
   box-shadow: 0 20px 56px var(--shadow); position: relative; overflow: hidden;
+  contain-intrinsic-size: auto 450px;
+  content-visibility: auto;
+}
+/* Prevent CLS: placeholder background while image loads */
+.hero-img:not(:has(img)) {
+  background: var(--section-bg);
 }
 
 
@@ -379,7 +385,8 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; }
   transition: all .25s; text-align: center;
 }
 .team-card:hover { border-color: var(--red); transform: translateY(-3px); box-shadow: 0 10px 26px var(--shadow); }
-.team-photo { width: 100%; aspect-ratio: 1; overflow: hidden; }
+.team-photo {
+  min-height: 180px; width: 100%; aspect-ratio: 1; overflow: hidden; }
 .team-info  { padding: 11px 10px 13px; }
 .team-info h3   { font-size: .86rem; margin-bottom: 4px; }
 .team-role {
@@ -648,4 +655,91 @@ footer { background: var(--off-white); border-top: 1.5px solid var(--border); pa
 
   /* Formulaire contact */
   .contact-form { padding: 20px 16px; }
+}
+
+/* Reset button defaults for hamburger */
+button.hamburger {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* =============================================
+   TOOLTIP STARMAN (footer)
+   ============================================= */
+.footer-bottom { align-items: center !important; }
+
+.tooltip-container {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip-container .borde-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.tooltip-container .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  left: 100%;
+  margin-left: 4px;
+  height: 32px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 14px;
+  font-size: .76rem;
+  font-weight: 600;
+  z-index: 10;
+  background: var(--white);
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px var(--shadow);
+  color: var(--ink-mid);
+}
+
+.tooltip strong { color: var(--red); }
+
+.tooltip-container:hover .tooltip {
+  transform: translateY(-50%) scaleX(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tooltip-container:hover .icon {
+  transform: rotate(90deg);
+  transition: 0.3s linear;
 }
